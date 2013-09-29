@@ -1,9 +1,9 @@
 <h1>Blog</h1>
 
 <% @entry.each do |entry| %>
-  <title><%= title %></title>
-  <%= date_posted %>
-  <%= post %>
+  <%= entry.title %><br/
+  <%= entry.date_posted %><br/>
+  <%= entry.post %><br/>
   <%= link_to "Read More", entry %>
 <% end %>
 

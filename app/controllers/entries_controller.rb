@@ -18,7 +18,7 @@ before_action :user_logged_in, only: %w(new create edit update destroy dashboard
     @entry = Entry.new entry_params
     if @entry.save
       flash[:notice] = "New entry successfully posted."
-      redirect_to root_url
+      redirect_to dashboard_url
     else
       render "new"
       flash[:notice] = "Entry not created."
@@ -31,7 +31,7 @@ before_action :user_logged_in, only: %w(new create edit update destroy dashboard
   def update
     if @entry.update entry_params
       flash[:notice] = "Entry successfully updated."
-      redirect_to root_url
+      redirect_to dashboard_url
     else
       render "edit"
       flash[:notice] = "Entry not updated."

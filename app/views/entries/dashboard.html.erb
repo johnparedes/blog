@@ -1,9 +1,12 @@
 <h1>User Dashboard</h1>
-<% @entries.each do |entry| %>
-  <%= entry.title %><br/>
-  <%= entry.post %><br/>
-  <%= link_to "Edit Entry", edit_entry_path %>
-<% end %>
+<p><div>
+  <% @entries.each do |entry| %>
+    <%= entry.title %><br/>
+    <%= entry.date_posted %><br/>
+    <%= entry.post %><br/>
+    <%= link_to "Edit Entry", edit_entry_path(entry) %>
+  <% end %>
+</div></p>
 
-<%= link_to "New Blog Entry", new_entry_path %>
+<%= link_to "New Blog Entry", new_entry_path %><br/>
 <%= link_to "Log Out", logout_path %>
