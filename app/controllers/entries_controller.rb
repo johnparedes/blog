@@ -1,9 +1,10 @@
 class EntriesController < ApplicationController
 
 before_action :find_entry, only: %w(edit update show)
+before_action :user_logged_in, only: %w(new create edit update destroy dashboard)
 
   def index
-    @entries = Entry.all
+    @entry = Entry.all
   end
 
   def show
@@ -40,6 +41,10 @@ before_action :find_entry, only: %w(edit update show)
   def destroy
     Entry.find(params[:id]).destroy
     flash[:notice] = "Entry deleted."
+  end
+
+  def dashboard
+    @entries = Entry.all
   end
 
   private

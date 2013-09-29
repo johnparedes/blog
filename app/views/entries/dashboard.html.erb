@@ -1,0 +1,9 @@
+<h1>User Dashboard</h1>
+<% @entries.each do |entry| %>
+  <%= entry.title %><br/>
+  <%= entry.post %><br/>
+  <%= link_to "Edit Entry", edit_entry_path %>
+<% end %>
+
+<%= link_to "New Blog Entry", new_entry_path %>
+<%= link_to "Log Out", logout_path %>
