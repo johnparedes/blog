@@ -55,6 +55,8 @@ before_action :user_logged_in, only: %w(new create edit update destroy dashboard
   end
 
   def entry_params
-    params.require(:entry).permit(:title, :post, :date_posted)
+    params.require(:entry).permit(
+      :title, :post, :date_posted, :entry_image, :entry_image_url, :remove_entry_image, :retained_entry_image
+    )
   end
 end
