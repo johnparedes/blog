@@ -1,11 +1,12 @@
-<h1>Blog</h1>
+<h1>John's Blog</h1>
 
 <% @entry.each do |entry| %>
-  <%= entry.title %><br/
+  <p><%= entry.title %><br/
   <%= entry.date_posted %><br/>
   <%= entry.post %><br/>
-  <%= link_to "Read More", entry %>
+  <%= link_to "Read More", entry %><br/></p>
 <% end %>
 
+<p><%= paginate @entry %></p>
 <%= link_to "New User", new_user_url %><br/>
 <%= link_to "Log In", login_url %>

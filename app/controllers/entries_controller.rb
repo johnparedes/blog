@@ -4,7 +4,7 @@ before_action :find_entry, only: %w(edit update show)
 before_action :user_logged_in, only: %w(new create edit update destroy dashboard)
 
   def index
-    @entry = Entry.all
+    @entry = Entry.page(params[:page]).per(4)
   end
 
   def show
@@ -44,7 +44,7 @@ before_action :user_logged_in, only: %w(new create edit update destroy dashboard
   end
 
   def dashboard
-    @entries = Entry.all
+    @entry = Entry.page(params[:page]).per(4)
   end
 
   private

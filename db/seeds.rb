@@ -7,3 +7,7 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 User.create!(email: "john@email.com", password: "password", password_confirmation: "password")
+
+20.times do |i|
+  Entry.create(title: "Title ##{i}", post: "Test ##{i}", date_posted: "2013-09-29")
+end
