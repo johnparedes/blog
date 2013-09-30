@@ -4,7 +4,7 @@ before_action :find_entry, only: %w(edit update show)
 before_action :user_logged_in, only: %w(new create edit update destroy dashboard)
 
   def index
-    @entry = Entry.page(params[:page]).per(4)
+    @entry = Entry.order("id DESC").page(params[:page]).per(4)
   end
 
   def show
@@ -41,10 +41,11 @@ before_action :user_logged_in, only: %w(new create edit update destroy dashboard
   def destroy
     Entry.find(params[:id]).destroy
     flash[:notice] = "Entry deleted."
+    redirect_to dashboard_url
   end
 
   def dashboard
-    @entry = Entry.page(params[:page]).per(4)
+    @entry = Entry.order("id DESC").page(params[:page]).per(4)
   end
 
   private
