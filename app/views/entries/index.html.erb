@@ -2,9 +2,10 @@
 
 <% @entry.each do |entry| %>
   <p>
-    <%= image_tag @entry.entry_image %><br/>
+    <%= image_tag entry.entry_image %><br/>
     <%= entry.title %><br/>
     <%= entry.date_posted %><br/>
+    <%= entry.user.email %><br/>
     <%= entry.post %><br/>
     <%= link_to "Read More", entry %><br/>
   </p>

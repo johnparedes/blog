@@ -3,6 +3,7 @@
     <p>
       <%= entry.title %><br/>
       <%= entry.date_posted %><br/>
+      <%= entry.user.email %><br/>
       <%= entry.post %><br/>
       <%= link_to "Edit Entry", edit_entry_path(entry) %><br/>
       <%= link_to "Delete Entry", entry, data: { confirm: "Are you sure you want to delete the entry?" }, method: :delete %>

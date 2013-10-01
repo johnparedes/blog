@@ -3,7 +3,7 @@ class CreateEntries < ActiveRecord::Migration
     create_table :entries do |t|
       t.string :title
       t.text :post
-      t.string :date_posted
+      t.date :date_posted
 
       t.timestamps
     end

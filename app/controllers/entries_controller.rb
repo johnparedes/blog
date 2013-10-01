@@ -4,7 +4,7 @@ before_action :find_entry, only: %w(edit update show)
 before_action :user_logged_in, only: %w(new create edit update destroy dashboard)
 
   def index
-    @entry = Entry.order("id DESC").page(params[:page]).per(4)
+    @entry = Entry.order("date_posted DESC").page(params[:page]).per(4)
   end
 
   def show
@@ -16,6 +16,7 @@ before_action :user_logged_in, only: %w(new create edit update destroy dashboard
 
   def create
     @entry = Entry.new entry_params
+    @entry.user_id = current_user.id
     if @entry.save
       flash[:notice] = "New entry successfully posted."
       redirect_to dashboard_url
@@ -45,7 +46,7 @@ before_action :user_logged_in, only: %w(new create edit update destroy dashboard
   end
 
   def dashboard
-    @entry = Entry.order("id DESC").page(params[:page]).per(4)
+    @entry = current_user.entries.order("date_posted DESC").page(params[:page]).per(4)
   end
 
   private
@@ -56,7 +57,7 @@ before_action :user_logged_in, only: %w(new create edit update destroy dashboard
 
   def entry_params
     params.require(:entry).permit(
-      :title, :post, :date_posted, :entry_image, :entry_image_url, :remove_entry_image, :retained_entry_image
+      :title, :post, :date_posted, :entry_image, :entry_image_url, :remove_entry_image, :retained_entry_image, :user_id
     )
   end
 end
