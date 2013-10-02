@@ -1,4 +1,4 @@
-<p><%= image_tag @entry.entry_image %></p>
+<p><%= image_tag @entry.entry_image.thumb('50x50%').url if @entry.entry_image_uid %></p>
 <h1><%= @entry.title %></h1>
 <p><%= @entry.date_posted %></p>
 <p><%= @entry.post %></p>
