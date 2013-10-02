@@ -24,7 +24,7 @@
     <%= f.check_box :remove_entry_image %>
   </div></p>
   <p><div class="field">
-    <%= image_tag @entry.entry_image.thumb ('100x100').url if @entry.entry_image_uid %><br/>
+    <%= image_tag @entry.entry_image.thumb('100x100').url if @entry.entry_image_uid %><br/>
   </div></p>
   <%= f.submit %>
   <%= f.hidden_field :retained_entry_image %>
